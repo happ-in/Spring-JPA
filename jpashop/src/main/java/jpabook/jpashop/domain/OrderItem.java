@@ -7,14 +7,14 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
-@Getter
-@Setter
+@Getter @Setter
+@Table(name = "order_item")
 public class OrderItem {
     @Id @GeneratedValue
     @Column(name = "order_item_id")
     private Long id;
 
-    @OneToMany
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "item_id")
     private Item item;
 
