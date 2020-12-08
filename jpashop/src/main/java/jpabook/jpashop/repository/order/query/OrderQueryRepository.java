@@ -12,10 +12,11 @@ public class OrderQueryRepository {
 
     private final EntityManager em;
 
+    // N+1 문제 발생
     public List<OrderQueryDTO> findOrderQueryDTO() {
-        List<OrderQueryDTO> result = findOrders();
+        List<OrderQueryDTO> result = findOrders();  // query 1번
         result.forEach(o -> {
-            List<OrderItemQueryDTO> orderItems = findOrderItems(o.getOrderId());
+            List<OrderItemQueryDTO> orderItems = findOrderItems(o.getOrderId());    // query N번
             o.setOrderItems(orderItems);
         });
 
