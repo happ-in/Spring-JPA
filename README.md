@@ -1,3 +1,9 @@
-# TIL (Today I Learn)
+# Spring JPA
 
-#### [인프런] 김영한 강사님의 JPA 강좌 : https://www.inflearn.com/roadmaps/149  
+#### [인프런] 김영한 강사님의 JPA 강좌 : https://www.i자바 ORM 표준 JPA 프로그래밍 - 기본편
+
+1) 자바 ORM 표준 JPA 프로그래밍 - 기본편 - 학습완료
+2) 실전! 스프링 부트와 JPA 활용1 - 웹 애플리케이션 개발 - 학습완료
+3) 실전! 스프링 부트와 JPA 활용2 - API 개발과 성능 최적화 - 학습완료
+4) 실전! 스프링 데이터 JPA  - 학습
+5) 실전! Querydsl
