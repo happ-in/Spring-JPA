@@ -44,4 +44,15 @@ class MemberRepositoryTest {
         long deleteCount = memberRepository.count();
         assertThat(deleteCount).isEqualTo(0);
     }
+
+    @Test
+    public void testQuery() {
+        Member m1 = new Member("m1", 10);
+        Member m2 = new Member("m2", 20);
+        memberRepository.save(m1);
+        memberRepository.save(m2);
+
+        List<Member> result = memberRepository.findUser("m1", 10);
+        assertThat(result.get(0)).isEqualTo(m1);
+    }
 }
