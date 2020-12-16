@@ -52,7 +52,7 @@ class MemberRepositoryTest {
         memberRepository.save(m1);
         memberRepository.save(m2);
 
-        List<Member> result = memberRepository.findUser("m1", 10);
+        List<Member> result = memberRepository.findUser("m2", 20);
         assertThat(result.get(0)).isEqualTo(m1);
     }
 }
