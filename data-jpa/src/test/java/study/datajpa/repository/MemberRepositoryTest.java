@@ -121,8 +121,8 @@ class MemberRepositoryTest {
 
         //when
         int resultCount = memberRepository.bulkAgePlus(20);
-        em.flush();
-        em.clear();
+//        em.flush();
+//        em.clear();
 
         //then
         assertThat(resultCount).isEqualTo(3);
