@@ -1,7 +1,5 @@
 package study.datajpa.controller;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -14,7 +12,6 @@ import study.datajpa.entity.Member;
 import study.datajpa.repository.MemberRepository;
 
 import javax.annotation.PostConstruct;
-import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
