@@ -18,8 +18,27 @@ public class MemberTest {
     @PersistenceContext
     EntityManager em;
 
+//    @Test
+//    public void JpaEventBaseEntity() throws InterruptedException {
+//        Member member = new Member("member1");
+//        memberRepository.save(member);
+//
+//        Thread.sleep(2000);
+//        member.changeUsername("member2");
+//
+//        em.flush();
+//        em.clear();
+//
+//        //when
+//        Member findMember = memberRepository.findById(member.getId()).get();
+//
+//        //then
+//        System.out.println("findMember.createdDate = " + findMember.getCreatedDate());
+//        System.out.println("findMember.updatedDate = " + findMember.getUpdatedDate());
+//    }
+
     @Test
-    public void JpaEventBaseEntity() throws InterruptedException {
+    public void EventBaseEntity() throws InterruptedException {
         Member member = new Member("member1");
         memberRepository.save(member);
 
@@ -34,7 +53,7 @@ public class MemberTest {
 
         //then
         System.out.println("findMember.createdDate = " + findMember.getCreatedDate());
-        System.out.println("findMember.updatedDate = " + findMember.getUpdatedDate());
+        System.out.println("findMember.updatedDate = " + findMember.getLastModifiedDate());
     }
 
 }
