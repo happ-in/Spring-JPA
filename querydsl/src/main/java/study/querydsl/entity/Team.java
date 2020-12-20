@@ -21,7 +21,7 @@ public class Team {
     @OneToMany(mappedBy = "team")
     private List<Member> members = new ArrayList<>();
 
-    public void Team(String name) {
+    public Team(String name) {
         this.name = name;
     }
 }

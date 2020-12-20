@@ -22,7 +22,7 @@ public class Member {
     @Column(name = "team_id")
     private Team team;
 
-    public void Member(String name, int age, Team team) {
+    public Member(String name, int age, Team team) {
         this.name = name;
         this.age = age;
         if(team != null) {
@@ -30,7 +30,7 @@ public class Member {
         }
     }
 
-    private void changeTeam(Team team) {
+    public void changeTeam(Team team) {
         this.team = team;
         team.getMembers().add(this);
     }
