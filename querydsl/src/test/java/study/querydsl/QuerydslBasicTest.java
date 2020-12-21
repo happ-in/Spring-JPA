@@ -1,7 +1,9 @@
 package study.querydsl;
 
 import com.querydsl.core.Tuple;
+import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.impl.JPAQueryFactory;
+import study.querydsl.dto.MemberDTO;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -69,6 +71,59 @@ public class QuerydslBasicTest {
             Integer age = tuple.get(member.age);
             System.out.println("username = " + username);
             System.out.println("age = " + age);
+        }
+    }
+
+    @Test
+    public void findDTOByJPQL() {
+        List<MemberDTO> result = em.createQuery("select new study.querydsl.dto.MemberDTO(m.username, m.age)" +
+                " from Member m", MemberDTO.class)
+                .getResultList();
+
+        for (MemberDTO memberDTO : result) {
+            System.out.println("memberDTO = " + memberDTO);
+        }
+    }
+
+    @Test
+    public void findDTOBySetter() {
+        List<MemberDTO> result = queryFactory
+                .select(Projections.bean(MemberDTO.class,
+                        member.username,
+                        member.age))
+                .from(member)
+                .fetch();
+
+        for (MemberDTO memberDTO : result) {
+            System.out.println("memberDTO = " + memberDTO);
+        }
+    }
+
+    @Test
+    public void findDTOByField() {
+        List<MemberDTO> result = queryFactory
+                .select(Projections.fields(MemberDTO.class,
+                        member.username,
+                        member.age))
+                .from(member)
+                .fetch();
+
+        for (MemberDTO memberDTO : result) {
+            System.out.println("memberDTO = " + memberDTO);
+        }
+    }
+
+    @Test
+    public void findDTOByConstructor() {
+        List<MemberDTO> result = queryFactory
+                .select(Projections.constructor(MemberDTO.class,
+                        member.username,
+                        member.age))
+                .from(member)
+                .fetch();
+
+        for (MemberDTO memberDTO : result) {
+            System.out.println("memberDTO = " + memberDTO);
         }
     }
 }
