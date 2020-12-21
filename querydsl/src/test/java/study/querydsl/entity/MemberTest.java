@@ -157,4 +157,6 @@ class MemberTest {
         boolean loaded = emf.getPersistenceUnitUtil().isLoaded(findMember.get(0).getTeam());
         assertThat(loaded).isTrue();
     }
+
+
 }
