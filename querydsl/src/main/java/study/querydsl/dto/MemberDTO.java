@@ -1,6 +1,5 @@
 package study.querydsl.dto;
 
-import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
